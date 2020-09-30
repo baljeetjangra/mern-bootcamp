@@ -1,19 +1,28 @@
+const dotenv = require('dotenv')
+dotenv.config();
+
 const mongoose = require('mongoose');
 const express = require('express');
 
 
-mongoose.connect("mongodb://localhost:27017/test",
+mongoose.connect(process.env.DATABASE,
 {
     useNewUrlParser:true,
     useUnifiedTopology:true,
     useCreateIndex:true,
+})
+.then(()=>{
+    console.log("DB CONNECTED")
+})
+.catch((err)=>{
+    console.log(err)
 })
 
 const app = express();
 
 
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 
 
