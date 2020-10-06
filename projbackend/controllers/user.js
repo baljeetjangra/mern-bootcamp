@@ -22,7 +22,7 @@ exports.getUser = (req,res) =>{
     return res.json(req.profile);
 }
 
-exports.userUpdate = (req,res) =>{
+exports.updateUser = (req,res) =>{
     User.findByIdAndUpdate(
         {_id:req.profile._id},
         {$set : req.body},
